@@ -1,0 +1,21 @@
+p {
+    font-family: Lato;
+  }
+
+  .container{
+    margin-right: 0;
+    margin-left: 0;
+  }
+  li{
+    margin-left: 20px;
+  }
+
+  a{
+    font-size: large;
+  }
+
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #DA291C !important;
+}
+
+
