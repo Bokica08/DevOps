@@ -30,7 +30,7 @@ public class ImportController {
 
     @GetMapping("/hotels")
     public String fillHotels() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/static/csvData/f_hotel.csv"));
+        BufferedReader reader = new BufferedReader(new FileReader("/app/csvData/f_hotel.csv"));
         reader.readLine();
         String line=null;
         while ((line=reader.readLine())!=null)
@@ -43,7 +43,7 @@ public class ImportController {
 
     @GetMapping("/huts")
     public String fillHuts() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/static/csvData/f_alpine_hut.csv"));
+        BufferedReader reader = new BufferedReader(new FileReader("/app/csvData/f_alpine_hut.csv"));
         reader.readLine();
         String line=null;
         while ((line=reader.readLine())!=null)
@@ -56,7 +56,7 @@ public class ImportController {
 
     @GetMapping("/camps")
     public String fillCamps() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/static/csvData/f_camp_site.csv"));
+        BufferedReader reader = new BufferedReader(new FileReader("/app/csvData/f_camp_site.csv"));
         reader.readLine();
         String line=null;
         while ((line=reader.readLine())!=null)
@@ -69,7 +69,7 @@ public class ImportController {
 
     @GetMapping("/guests")
     public String fillGuests() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/static/csvData/f_guest_house.csv"));
+        BufferedReader reader = new BufferedReader(new FileReader("/app/csvData/f_guest_house.csv"));
         reader.readLine();
         String line=null;
         while ((line=reader.readLine())!=null)
