@@ -2,12 +2,15 @@ name: Docker Build and Push
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
    docker-build-and-push:
      runs-on: ubuntu-latest
      steps:
+       -
+        name: Checkout code
+        uses: actions/checkout@v2
        -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
