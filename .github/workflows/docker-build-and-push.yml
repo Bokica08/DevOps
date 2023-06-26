@@ -98,6 +98,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+      - 
+        name: Copy JAR file
+        run: |
+          cp backend/tech_prototype/target/tech_prototype-0.0.1-SNAPSHOT.jar deployment/app.jar
       -
         name: Deploy with Docker Compose
         run: |
