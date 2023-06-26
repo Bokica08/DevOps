@@ -33,7 +33,7 @@ jobs:
         name: Build with Maven
         run: |
           cd backend
-          mvn clean package
+          mvn clean package -Dspring.profiles.active=prod
        -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
