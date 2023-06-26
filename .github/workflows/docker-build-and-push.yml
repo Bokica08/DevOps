@@ -6,7 +6,6 @@ on:
 
 jobs:
   deploy:
-    needs: [backend, frontend]
     runs-on: ubuntu-latest
     services:
       postgres:
