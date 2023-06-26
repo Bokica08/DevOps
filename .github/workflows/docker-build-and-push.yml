@@ -102,14 +102,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: List files in backend/target
-        run: |
-          ls -al ./backend/target
-
-      - name: Copy Backend JAR file
-        run: |
-          cp ./backend/target/tech_prototype-0.0.1-SNAPSHOT.jar deployment/app.jar
-
       - name: Deploy with Docker Compose
         run: |
           docker-compose up -d
