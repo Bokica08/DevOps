@@ -14,7 +14,7 @@ services:
       - POSTGRES_PASSWORD=dians
 
   swisshousing-app:
-    build: backend
+    image: bokica08/devops-backend:latest
     container_name: swisshousing-app
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://swisshousing-db:5432/swisshousing
@@ -26,8 +26,9 @@ services:
       - 8080:8080
     depends_on:
       - swisshousing-db
+
   swisshousing-front:
-    build: dians-front-end
+    image: bokica08/devops-frontend:latest
     container_name: swisshousing-front
     ports:
       - 4200:80
