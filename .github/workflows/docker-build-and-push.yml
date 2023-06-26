@@ -11,6 +11,7 @@ jobs:
        postgres:
          image: postgres:15
          env:
+           POSTGRES_USER: swiss
            POSTGRES_PASSWORD: dians
            POSTGRES_DB: swisshousing
          ports:
