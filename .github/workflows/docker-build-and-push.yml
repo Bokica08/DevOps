@@ -11,8 +11,8 @@ jobs:
        postgres:
          image: postgres:15
          env:
-           POSTGRES_PASSWORD: swiss
-           POSTGRES_DB: dians
+           POSTGRES_PASSWORD: dians
+           POSTGRES_DB: swisshousing
          ports:
            - 5432:5432
          options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
