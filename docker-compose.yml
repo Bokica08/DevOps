@@ -1,23 +1,39 @@
-name: Docker Compose Deployment
+version: '3.8'
+services:
 
-on:
-  push:
-    branches:
-      - main
+  swisshousing-db:
+    image: "postgres"
+    container_name: swisshousing-db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=swisshousing
+      - POSTGRES_USER=swiss
+      - POSTGRES_PASSWORD=dians
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  swisshousing-app:
+    build: backend
+    container_name: swisshousing-app
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://swisshousing-db:5432/swisshousing
+      - SPRING_DATASOURCE_USERNAME=swiss
+      - SPRING_DATASOURCE_PASSWORD=dians
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
+    ports:
+      - 8080:8080
+    depends_on:
+      - swisshousing-db
+  swisshousing-front:
+    build: dians-front-end
+    container_name: swisshousing-front
+    ports:
+      - 4200:80
+    links:
+      - swisshousing-app
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install Docker Compose
-        run: |
-          sudo apt-get install -y docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-
-      - name: Set up Docker Compose
-        run: |
-          sudo docker-compose up -d
+volumes:
+  postgres-data:
+    driver: local
