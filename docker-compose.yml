@@ -26,6 +26,8 @@ services:
       - 8080:8080
     depends_on:
       - swisshousing-db
+    volumes:
+      - ./backend/target:/app/target
   swisshousing-front:
     build: dians-front-end
     container_name: swisshousing-front
