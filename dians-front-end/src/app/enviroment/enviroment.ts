@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://swisshousing-app:8080'
+  apiBaseUrl: 'http://ver2.201091.com'
 };
 
 /*
