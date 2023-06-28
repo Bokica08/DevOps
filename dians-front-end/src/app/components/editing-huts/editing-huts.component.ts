@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConfigService } from 'src/app/config/config.service';
 import {Hut} from '../adding-huts/adding-huts.model'
-
+import{environment} from '../../enviroment/enviroment'
 
 @Component({
   selector: 'app-editing-huts',
@@ -17,7 +17,7 @@ export class EditingHutsComponent implements OnInit{
   ngOnInit(): void {
     this.id = (this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
-    this.httpClient.get<Hut>("http://localhost:8080/alpinehut/"+this.id).subscribe(
+    this.httpClient.get<Hut>(environment.apiBaseUrl+"/alpinehut/"+this.id).subscribe(
       
       (response: Hut) => {
         this.hut = response;
@@ -33,7 +33,7 @@ export class EditingHutsComponent implements OnInit{
 submit()
 {
   console.log(this.hut);
-  this.httpClient.post<any>("http://localhost:8080/alpinehut/edit/"+this.id,this.hut)
+  this.httpClient.post<any>(environment.apiBaseUrl+"/alpinehut/edit/"+this.id,this.hut)
 .subscribe(res=>{
   console.log(this.hut);
 })

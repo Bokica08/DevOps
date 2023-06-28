@@ -5,7 +5,7 @@ import { ConfigService } from 'src/app/config/config.service';
 import { Camp } from '../adding-camps/adding-camps.model';
 import { Hut } from '../adding-huts/adding-huts.model';
 import { ListReview } from 'src/app/list-reviews.model';
-
+import{environment} from '../../enviroment/enviroment'
 
 @Component({
   selector: 'app-details-camps',
@@ -21,7 +21,7 @@ export class DetailsCampsComponent implements OnInit{
   ngOnInit(): void {
     this.id = (this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
-    this.httpClient.get<Camp>("http://localhost:8080/campsite/"+this.id).subscribe(
+    this.httpClient.get<Camp>(environment.apiBaseUrl+"/campsite/"+this.id).subscribe(
       
       (response: Camp) => {
         this.camp = response;

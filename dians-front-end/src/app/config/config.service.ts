@@ -121,6 +121,6 @@ export class ConfigService {
   }
   public getAvgGrade(id:string):Observable<any>{
     
-  return  this.http.get<any>("http://localhost:8080/location/grade/"+id);
+  return  this.http.get<any>(`${this.apiServerUrl}/location/grade/`+id);
 }
 }

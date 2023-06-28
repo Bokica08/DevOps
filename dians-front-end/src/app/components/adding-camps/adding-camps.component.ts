@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Camp} from './adding-camps.model'
 import { HttpClient } from '@angular/common/http';
+import{environment} from '../../enviroment/enviroment'
 
 @Component({
   selector: 'app-adding-camps',
@@ -15,7 +16,7 @@ export class AddingCampsComponent implements OnInit {
 submit()
 {
   console.log(this.camp);
-  this.httpClient.post<any>("http://localhost:8080/campsite/add",this.camp)
+  this.httpClient.post<any>(environment.apiBaseUrl+"/campsite/add",this.camp)
 .subscribe(res=>{
   console.log(this.camp);
   window.location.href="/campsites"

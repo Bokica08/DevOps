@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { dataService } from 'src/app/resolver/dataService';
 import { Register } from './signup.model';
-
+import{environment} from '../../enviroment/enviroment'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -23,7 +23,7 @@ submit(f:NgForm)
   //this.signup.role="ROLE_USER";
   //this.signup.surname="tr"
     console.log(this.signup);
-this.httpClient.post<any>("http://localhost:8080/register",this.signup)
+this.httpClient.post<any>(environment.apiBaseUrl+"/register",this.signup)
 .subscribe(res=>{
   if(res!=null && res!=undefined){
     location.href="/login";

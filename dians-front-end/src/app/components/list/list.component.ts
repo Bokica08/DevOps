@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { ConfigService } from 'src/app/config/config.service';
 import { Employee } from 'src/app/employee';
-
+import{environment} from '../../enviroment/enviroment'
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -173,7 +173,7 @@ export class ListComponent implements OnInit{
   }
   getHotelForUser(id:number)
   {
-    this.httpClient.get<any>("http://localhost:8080/user/addFavourite/"+id,).subscribe(res=>
+    this.httpClient.get<any>(environment.apiBaseUrl+"/user/addFavourite/"+id,).subscribe(res=>
     {
       console.log(res);
       
@@ -181,7 +181,7 @@ export class ListComponent implements OnInit{
   }
   getHotelForUserV(id:number)
   {
-    this.httpClient.get<any>("http://localhost:8080/user/addVisited/"+id,).subscribe(res=>
+    this.httpClient.get<any>(environment.apiBaseUrl+"/user/addVisited/"+id,).subscribe(res=>
     {
       console.log(res);
       

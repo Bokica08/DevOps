@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConfigService } from 'src/app/config/config.service';
 import {Camp} from '../adding-camps/adding-camps.model'
-
+import{environment} from '../../enviroment/enviroment'
 @Component({
   selector: 'app-editing-camps',
   templateUrl: './editing-camps.component.html',
@@ -16,7 +16,7 @@ export class EditingCampsComponent implements OnInit {
   ngOnInit(): void {
     this.id = (this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
-    this.httpClient.get<Camp>("http://localhost:8080/campsite/"+this.id).subscribe(
+    this.httpClient.get<Camp>(environment.apiBaseUrl+"/campsite/"+this.id).subscribe(
       
       (response: Camp) => {
         this.camp = response;
@@ -32,7 +32,7 @@ export class EditingCampsComponent implements OnInit {
 submit()
 {
   console.log(this.camp);
-  this.httpClient.post<any>("http://localhost:8080/campsite/edit/"+this.id,this.camp)
+  this.httpClient.post<any>(environment.apiBaseUrl+"/campsite/edit/"+this.id,this.camp)
 .subscribe(res=>{
   console.log(this.camp);
 })

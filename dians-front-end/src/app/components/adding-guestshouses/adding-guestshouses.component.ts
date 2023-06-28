@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Guest } from './adding-guesthouses.model';
-
+import{environment} from '../../enviroment/enviroment'
 @Component({
   selector: 'app-adding-guestshouses',
   templateUrl: './adding-guestshouses.component.html',
@@ -15,7 +15,7 @@ export class AddingGuestshousesComponent implements OnInit{
   submit()
   {
     console.log(this.guest);
-    this.httpClient.post<any>("http://localhost:8080/guesthouse/add",this.guest)
+    this.httpClient.post<any>(environment.apiBaseUrl+"/guesthouse/add",this.guest)
   .subscribe(res=>{
     console.log(this.guest);
     window.location.href="/guesthouses"

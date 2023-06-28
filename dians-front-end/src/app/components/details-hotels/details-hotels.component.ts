@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ConfigService } from 'src/app/config/config.service';
 import { Hotel } from '../adding-hotels/adding-hotels.model';
 import { ListReview } from 'src/app/list-reviews.model';
-
+import{environment} from '../../enviroment/enviroment'
 
 @Component({
   selector: 'app-details-hotels',
@@ -20,7 +20,7 @@ export class DetailsHotelsComponent implements OnInit{
   ngOnInit(): void {
     this.id = (this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
-    this.httpClient.get<Hotel>("http://localhost:8080/hotel/"+this.id).subscribe(
+    this.httpClient.get<Hotel>(environment.apiBaseUrl+"/hotel/"+this.id).subscribe(
       
       (response: Hotel) => {
         this.hotel = response;

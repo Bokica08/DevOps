@@ -5,7 +5,7 @@ import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 import { ConfigService } from 'src/app/config/config.service';
 import { ListReview } from 'src/app/list-reviews.model';
 import { Hut } from '../adding-huts/adding-huts.model';
-
+import{environment} from '../../enviroment/enviroment'
 @Component({
   selector: 'app-details-alpinehut',
   templateUrl: './details-alpinehut.component.html',
@@ -20,7 +20,7 @@ export class DetailsAlpinehutComponent implements OnInit{
   ngOnInit(): void {
     this.id = (this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
-    this.httpClient.get<Hut>("http://localhost:8080/alpinehut/"+this.id).subscribe(
+    this.httpClient.get<Hut>(environment.apiBaseUrl+"/alpinehut/"+this.id).subscribe(
       
       (response: Hut) => {
         this.hut = response;

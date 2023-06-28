@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/_services/user.service';
 import { User } from './approveAdmin.model';
-
+import{environment} from '../../enviroment/enviroment'
 @Component({
   selector: 'app-approve-admin',
   templateUrl: './approve-admin.component.html',
@@ -12,7 +12,7 @@ export class ApproveAdminComponent implements OnInit{
   users:User[]
   constructor(private httpClient:HttpClient){}
   ngOnInit(): void {
-   this.httpClient.get<any>("http://localhost:8080/user/pending")
+   this.httpClient.get<any>(environment.apiBaseUrl+"/user/pending")
   .subscribe(res=>{
     this.users=res
     console.log(this.users);
@@ -23,7 +23,7 @@ export class ApproveAdminComponent implements OnInit{
 approve(send:string)
 {
 
-  this.httpClient.get<any>("http://localhost:8080/user/pending/authorizeAdmin?username="+send).subscribe(res=>
+  this.httpClient.get<any>(environment.apiBaseUrl+"/user/pending/authorizeAdmin?username="+send).subscribe(res=>
   {
     this.ngOnInit()
   })
