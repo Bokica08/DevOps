@@ -111,7 +111,7 @@ export class ConfigService {
   public getUser(username:string):Observable<any>{
     let queryParams=new HttpParams();
     queryParams=queryParams.append("username",username)
-    return this.http.get<CampSite[]>(`${this.apiServerUrl}/user/get`,{params:queryParams})
+    return this.http.get<CampSite[]>(`${this.apiServerUrl}/user/get`,{params:queryParams,withCredentials: true})
   }
 
   public getReviewsByLocation(locationId:number):Observable<ListReview[]>{

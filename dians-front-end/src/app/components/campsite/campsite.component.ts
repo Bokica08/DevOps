@@ -60,7 +60,7 @@ export class CampsiteComponent implements OnInit{
 
   getCampForUser(id:number)
   {
-    this.httpClient.get<any>(environment.apiBaseUrl+"/user/addFavourite/"+id,).subscribe(res=>
+    this.httpClient.get<any>(environment.apiBaseUrl+"/user/addFavourite/"+id,{withCredentials: true}).subscribe(res=>
     {
       console.log(res);
       
@@ -68,7 +68,7 @@ export class CampsiteComponent implements OnInit{
   }
   getCampForUserV(id:number)
   {
-    this.httpClient.get<any>(environment.apiBaseUrl+"/user/addVisited/"+id,).subscribe(res=>
+    this.httpClient.get<any>(environment.apiBaseUrl+"/user/addVisited/"+id,{withCredentials: true}).subscribe(res=>
     {
       console.log(res);
       
