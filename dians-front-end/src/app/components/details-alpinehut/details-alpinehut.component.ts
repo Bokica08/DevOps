@@ -6,6 +6,8 @@ import { ConfigService } from 'src/app/config/config.service';
 import { ListReview } from 'src/app/list-reviews.model';
 import { Hut } from '../adding-huts/adding-huts.model';
 import{environment} from '../../enviroment/enviroment'
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-details-alpinehut',
   templateUrl: './details-alpinehut.component.html',
@@ -16,7 +18,7 @@ export class DetailsAlpinehutComponent implements OnInit{
   public avg:any | undefined;
   hut=new Hut();
   id:string
-  constructor(private httpClient:HttpClient,private route: ActivatedRoute,private configService:ConfigService){}
+  constructor(private httpClient:HttpClient,private route: ActivatedRoute,private configService:ConfigService,private router: Router){}
   ngOnInit(): void {
     this.id = (this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
@@ -44,7 +46,8 @@ export class DetailsAlpinehutComponent implements OnInit{
     addReview(id:string)
     {
       console.log(id);
-      window.location.href = "http://localhost:4200/review/add/"+id+"?type=hut-details";
+      this.router.navigate(['/review/add', id], { queryParams: { type: 'hut-details' } });
+
     }
     public getReviews(): void {
   

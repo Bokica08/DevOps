@@ -6,6 +6,7 @@ import { Camp } from '../adding-camps/adding-camps.model';
 import { Hut } from '../adding-huts/adding-huts.model';
 import { ListReview } from 'src/app/list-reviews.model';
 import{environment} from '../../enviroment/enviroment'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details-camps',
@@ -17,7 +18,7 @@ export class DetailsCampsComponent implements OnInit{
   public reviews:ListReview[] | undefined;
   public avg:any | undefined;
   id:string
-  constructor(private httpClient:HttpClient,private route: ActivatedRoute,private configService:ConfigService){}
+  constructor(private httpClient:HttpClient,private route: ActivatedRoute,private configService:ConfigService,private router: Router){}
   ngOnInit(): void {
     this.id = (this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
@@ -45,7 +46,7 @@ export class DetailsCampsComponent implements OnInit{
     addReview(id:string)
     {
       console.log(id);
-      window.location.href = "http://localhost:4200/review/add/"+id+"?type=camp-details";
+      this.router.navigateByUrl('/review/add/' + id + '?type=camp-details');
     }
 
     public getReviews(): void {

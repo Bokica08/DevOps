@@ -5,6 +5,7 @@ import { ConfigService } from 'src/app/config/config.service';
 import { Guest } from '../adding-guestshouses/adding-guesthouses.model';
 import { ListReview } from 'src/app/list-reviews.model';
 import{environment} from '../../enviroment/enviroment'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details-guesthouses',
@@ -16,7 +17,7 @@ export class DetailsGuesthousesComponent implements OnInit{
   public reviews:ListReview[] | undefined;
   public avg:any | undefined;
   id:string
-  constructor(private httpClient:HttpClient,private route: ActivatedRoute,private configService:ConfigService){}
+  constructor(private httpClient:HttpClient,private route: ActivatedRoute,private configService:ConfigService,private router: Router){}
   ngOnInit(): void {
     this.id = (this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
@@ -44,7 +45,7 @@ export class DetailsGuesthousesComponent implements OnInit{
     addReview(id:string)
     {
       console.log(id);
-      window.location.href = "http://localhost:4200/review/add/"+id+"?type=house-details";
+      this.router.navigate(['/review/add', id], { queryParams: { type: 'house-details' } });
     }
 
     public getReviews(): void {
