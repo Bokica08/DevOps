@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swisshousing-front
+  namespace: my-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: swisshousing-front
+  template:
+    metadata:
+      labels:
+        app: swisshousing-front
+    spec:
+      containers:
+      - name: swisshousing-front
+        image: bokica08/devops-frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: regcred

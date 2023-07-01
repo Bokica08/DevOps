@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress 
+metadata:
+  name: swisshousing-app
+  namespace: my-app
+spec:
+  rules:
+  - host: ver1.201091.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: swisshousing-front
+            port:
+              number: 80
+  - host: localhost
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: swisshousing-app
+            port:
+              number: 80

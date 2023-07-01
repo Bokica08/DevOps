@@ -4,6 +4,7 @@ services:
   swisshousing-db:
     image: "postgres"
     container_name: swisshousing-db
+    pull_policy: always
     volumes:
       - postgres-data:/var/lib/postgresql/data
     ports:
@@ -16,6 +17,7 @@ services:
   swisshousing-app:
     image: bokica08/devops-backend:latest
     container_name: swisshousing-app
+    pull_policy: always
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://swisshousing-db:5432/swisshousing
       - SPRING_DATASOURCE_USERNAME=swiss
@@ -30,6 +32,7 @@ services:
   swisshousing-front:
     image: bokica08/devops-frontend:latest
     container_name: swisshousing-front
+    pull_policy: always
     ports:
       - 4200:80
     links:

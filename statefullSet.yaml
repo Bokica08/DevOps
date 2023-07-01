@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: swisshousing-db
+  namespace: my-app
+spec:
+  serviceName: "swisshousing-db"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swisshousing-db
+  template:
+    metadata:
+      labels:
+        app: swisshousing-db
+    spec:
+      containers:
+      - name: swisshousing-db
+        image: postgres
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: POSTGRES_DB
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: POSTGRES_PASSWORD
