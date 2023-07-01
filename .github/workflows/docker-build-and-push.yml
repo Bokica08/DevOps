@@ -118,5 +118,9 @@ jobs:
           kubectl apply -f service.yaml
           kubectl apply -f service-front.yaml
           kubectl apply -f ingress.yaml
+          kubectl rollout restart deployment swisshousing-front -n my-app
+          kubectl rollout restart deployment swisshousing-app -n my-app
+
+
 
 
