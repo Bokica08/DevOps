@@ -87,24 +87,24 @@ jobs:
           tags: bokica08/devops-frontend:latest
   deploy:
     needs: [backend, frontend]
-    runs-on: ubuntu-latest 
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
           submodules: true
-          
+
       - name: Setup Kubernetes CLI
         uses: azure/setup-kubectl@v1
         with:
           version: 'latest'
 
       - name: Connect to Kubernetes
-        uses: azure/k8s-set-context@v1
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBECONFIG }}
-          
+        run: |
+          kubectl config use-context k3d-kube4
+          kubectl cluster-info
+          kubectl get nodes
+
       - name: Deploy to Kubernetes
         run: |
           kubectl apply -f namespace.yaml
@@ -112,7 +112,7 @@ jobs:
           kubectl apply -f configMap.yaml
           kubectl apply -f deployment.yaml
           kubectl apply -f deployment-front.yaml
-          kubectl apply -f statefullSet.yaml
+          kubectl apply -f statefulSet.yaml
           kubectl apply -f service-db.yaml
           kubectl apply -f service.yaml
           kubectl apply -f service-front.yaml
