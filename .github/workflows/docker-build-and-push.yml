@@ -85,6 +85,7 @@ jobs:
           file: ./dians-front-end/Dockerfile
           push: true
           tags: bokica08/devops-frontend:latest
+          
   deploy:
     needs: [backend, frontend]
     runs-on: self-hosted
@@ -117,4 +118,5 @@ jobs:
           kubectl apply -f service.yaml
           kubectl apply -f service-front.yaml
           kubectl apply -f ingress.yaml
+
 
