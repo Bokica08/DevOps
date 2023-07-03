@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b46bfac6-3360-4d69-b921-43fcce508d76" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Homework3&amp;4/SwissHousingMicroServices/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Homework3&amp;4/SwissHousingMicroServices/.idea/compiler.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Homework3&amp;4/SwissHousingMicroServices/.idea/dataSources.xml" beforeDir="false" />
@@ -279,28 +281,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bojan/Desktop/fax/Arhitektura na softver/D3/SwissHousing/DevOps&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Bojan\\Desktop\\fax\\Arhitektura na softver\\D3\\SwissHousing\\DevOps\\dians-front-end\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Bojan/Desktop/fax/Arhitektura na softver/D3/SwissHousing/DevOps/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "C:\\Users\\Bojan\\Desktop\\fax\\Arhitektura na softver\\D3\\SwissHousing\\DevOps\\dians-front-end\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Bojan\Desktop\fax\Arhitektura na softver\D3\SwissHousing\DevOps" />
@@ -320,6 +322,15 @@
       <workItem from="1687727812551" duration="3621000" />
       <workItem from="1687794770066" duration="3972000" />
       <workItem from="1687809798185" duration="2915000" />
+      <workItem from="1687882313167" duration="1553000" />
+      <workItem from="1687892211076" duration="7000" />
+      <workItem from="1687893035706" duration="148000" />
+      <workItem from="1687894158912" duration="122000" />
+      <workItem from="1687895313706" duration="2472000" />
+      <workItem from="1687968748586" duration="310000" />
+      <workItem from="1687971674026" duration="124000" />
+      <workItem from="1687971829366" duration="714000" />
+      <workItem from="1687973751455" duration="2525000" />
     </task>
     <servers />
   </component>
